@@ -5,7 +5,7 @@ Progetto intrapreso nel 2006 dall' università di Roma la Sapienza.
 
 ### Informazioni tecniche
 
-L' idea è di scrivere un software web-based appoggiandolo al framework Python Django
+L' idea è di scrivere un software web-based appoggiandolo al framework Python Django.
 Il database utilizzato (salvo direttive contrarie) sarà MySql.
 
 Lo storage di file multimediali (immagini, audio, video etc..) sarà affidata al pacchetto
