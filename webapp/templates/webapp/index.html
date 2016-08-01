@@ -1,0 +1,42 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% block title %} | Index {% endblock %}
+{% block css_style %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/item_list.css' %}" />
+{% endblock %}
+{% block content %}
+{% if latest_opera_list %}
+    <div id="item-list">
+    {% for opera in latest_opera_list %}
+        
+        <a href="{% url 'webapp:view_opera' opera.id %}">
+            <div class="item-div row">
+                <div class="item-thumbnail hidden-xs col-sm-1 vcenter">
+                    <span class="glyphicon glyphicon-book"></span>
+                </div>
+                <div class="item-main col-xs-12 col-sm-7 vcenter">
+                    <p class="item-title"
+                    title="{{ opera.title }}"> {{ opera.title }}
+                    </p>
+                </div>
+                <div class="item-sub col-xs-12 col-sm-3 vcenter">
+                    <ul class="meta-list list-unstyled">
+                        <li>{{ opera.writing_date }}</li>
+                        <li><span class="glyphicon glyphicon-user"></span> {{ opera.author }}</li>
+                    </ul>
+                </div>
+            </div>
+        </a>
+        
+    {% endfor %}
+    </div>
+{% else %}
+    <div class="list-warning">
+        <div class="alert alert-warning" role="alert">
+            <span class="sr-only">Error:</span>
+            Sorry, no books matching your query
+        </div>
+    <div>
+{% endif %}
+{% endblock %}
