@@ -1,31 +1,59 @@
+import tempfile
+import os
+
+from utils import sizeof_fmt
+from django.conf import settings
 from django.shortcuts import get_object_or_404, render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 
-from .models import Opera, OperaForm
+from .forms import OperaForm, AttachForm
+from .models import Opera, Attach
 
 def index(request):
     all_operas = Opera.objects.values()
     context = {'request': request,
                 'all_operas': all_operas}
     return render(request, 'webapp/home.html', context)
-    
+
 def add(request):
     '''
     Expose add page with form and store a data from form in na database
     '''
     if request.method == 'POST':
-        forms = OperaForm(request.POST)
-        if forms.is_valid():    
-            addedOpera = forms.save()
-            opera_id = addedOpera.id
+        opera_forms = OperaForm(request.POST)
+        attach_forms = AttachForm(request.POST, request.FILES)
+        
+        if request.FILES:
+            uploadedFile = request.FILES['file_upload']        
+            file_name = os.path.splitext(uploadedFile.name)[0]        
+            file_size = uploadedFile.size        
+            file_type = uploadedFile.content_type
+            
+            if attach_forms.is_valid():
+                addeddAttach = attach_forms.save(commit=False)
+                
+                addeddAttach.file_name = file_name
+                addeddAttach.file_size = file_size
+                addeddAttach.file_type = file_type
+                            
+                addeddAttach.save()
+        
+        if opera_forms.is_valid():
+            addeddOpera = opera_forms.save()
+            if request.FILES:
+                addeddOpera.media.add(addeddAttach)
+            opera_id = addeddOpera.id
+            addeddOpera.save()
             return HttpResponseRedirect(reverse('webapp:view_opera', args=(opera_id,)))
-        #else:
-            #context forms.errors()
+    
     else:
-        forms = OperaForm()
-        context = {'forms': forms}
+        attach_forms = AttachForm()
+        opera_forms = OperaForm()
+        
+        context = {'opera_forms': opera_forms, 
+                'attach_forms': attach_forms}
         return render(request, 'webapp/add.html', context)
         
 def allopera(request):
@@ -52,4 +80,11 @@ def latest(request):
 
 def view_opera(request, opera_id):
     opera = get_object_or_404(Opera, pk=opera_id)
-    return render(request, 'webapp/details.html', {'opera': opera})
+    
+    if len(opera.media.all()) > 0:
+        attachments = opera.media.all()
+    else:
+        attachments = None
+    
+    context = {'opera': opera, 'attachments': attachments}
+    return render(request, 'webapp/details.html', context)

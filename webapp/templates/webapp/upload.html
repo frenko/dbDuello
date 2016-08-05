@@ -1,37 +1,30 @@
 {% extends "webapp/base.html" %}
 {% load staticfiles %}
 {% load widget_tweaks %}
-{% block title %} | Add New Opera {% endblock %}
+{% block title %} | Upload {% endblock %}
 {% include "webapp/navbar.html" %}
 
 {% block content %}
   <header>
     <center>
-      <h1>Add Opera</h1>
+      <h1>Upload Files</h1>
     </center>
   </header>
   
   {% if request.method == 'POST' %}
-  
-  porcoddio
-  
+    name: {{ file_name }}
+    <br />
+    size: {{ file_size }}
+    <br />
+    type: {{ file_type }}
+    <br />
+    notes: {{ file_notes }}
+
   {% else %}
-  <form id="mega-form" class="form-horizontal" method="POST" action="{% url 'webapp:add' %}" enctype="multipart/form-data">
+  
+  <form id="mega-form" class="form-horizontal" method="POST" action="{% url 'webapp:upload' %}" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ opera_forms.management_form }}
-    
-    {% for field in opera_forms %}
-    <div class="form-group">
-      <div class="col-sm-12">
-        <div class="input-group">
-          <label class="input-group-addon" for="{{ field.id_for_label }}">{{ field.label }}</label> 
-          {{ field | add_class:"form-control" }}
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-    
-    {% for field in attach_forms %}
+  {% for field in attach_forms %}
     <div class="form-group">
       <div class="col-sm-12">
         <div class="input-group">
@@ -47,17 +40,5 @@
     </div>
 
   </form>
-  
-  
-  
-{% endif %}
-{% endblock %}
-
-{% block js_block %}
-{{ block.super }}
-  <script>
-    function resetForm(){
-      $('#mega-form')[0].reset();
-    }
-  </script>
+  {% endif %}
 {% endblock %}

@@ -50,6 +50,18 @@
             </tr>
         </tbody>
     </table>
+    
+    {% if attachments %}
+        
+        {% for attach in attachments %}
+        
+            <a href="{{ attach.file_upload.url }}">{{ attach.file_name }}</a>
+            <br />
+            {{ attach.notes }}
+        {% endfor %}
+        
+    {% endif %}
+    
 </article>
 
 {% endblock %}
