@@ -1,0 +1,67 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% block title %} | Opera: {{ opera.title }} {% endblock %}
+
+{% block content %}
+<header class="page-header" style="margin-top:0px">
+    <h1>{{ opera.title }}
+        <small>{{ opera.author }}</small>
+    </h1>
+</header>
+
+
+<article>
+    <h4>Details</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Original Title</td>
+                <td>{{ opera.title_original }}</td>
+            </tr>
+            <tr>
+                <td>Period</td>
+                <td>{{ opera.period }}</td>
+            </tr>
+            <tr>
+                <td>Location</td>
+                <td>{{ opera.location }}</td>
+            </tr>
+            <tr>
+                <td>Writing date</td>
+                <td>{{ opera.writing_date }}</td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>{{ opera.description }}</td>
+            </tr>
+            <tr>
+                <td>quote</td>
+                <td>{{ opera.quote }}</td>
+            </tr>
+            <tr>
+                <td>Original quote</td>
+                <td>{{ opera.quote_original }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    {% if attachments %}
+        
+        {% for attach in attachments %}
+        
+            <a href="{{ attach.file_upload.url }}">{{ attach.file_name }}</a>
+            <br />
+            {{ attach.notes }}
+        {% endfor %}
+        
+    {% endif %}
+    
+</article>
+
+{% endblock %}

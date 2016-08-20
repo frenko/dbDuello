@@ -1,0 +1,70 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% block title %} | All Operas {% endblock %}
+{% block css_style %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/item_list.css' %}" />
+{% endblock %}
+{% include "webapp/navbar.html" %}
+{% block content %}
+<div id="item-list">
+{% for opera in operas %}
+    <a href="{% url 'webapp:view_opera' opera.id %}">
+            <div class="item-div row">
+                <div class="item-thumbnail hidden-xs col-sm-1 vcenter">
+                    <span class="glyphicon glyphicon-book"></span>
+                </div>
+                <div class="item-main col-xs-12 col-sm-7 vcenter">
+                    <p class="item-title"
+                    title="{{ opera.title }}"> {{ opera.title }}
+                    </p>
+                </div>
+                <div class="item-sub col-xs-12 col-sm-3 vcenter">
+                    <ul class="meta-list list-unstyled">
+                        <li>{{ opera.writing_date }}</li>
+                        <li><span class="glyphicon glyphicon-user"></span> {{ opera.author }}</li>
+                    </ul>
+                </div>
+            </div>
+        </a>
+{% endfor %}
+</div>
+
+<!-- Pagination Start -->
+<div align="center">
+<nav aria-label="Page navigation">
+  <ul class="pagination" >
+    {% if operas.has_previous %}
+    <li>
+      <a href="?page={{ operas.previous_page_number }}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    {% else %}
+    <li class="disabled">
+      <a href="" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    {% endif %}
+    {% for i in operas.paginator.page_range %}
+    <li {% if operas.number == i %}class="active"{% endif %}><a href="?page={{i}}">{{i}}</a></li>
+    {% endfor %}    
+    {% if operas.has_next %}
+    <li>
+      <a href="?page={{ operas.next_page_number }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    {% else %}
+    <li class="disabled">
+      <a href="" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+</div>
+<!-- Pagination End -->
+{% endblock %}
