@@ -14,9 +14,7 @@ class OperaForm(ModelForm):
     
     class Meta:
         model = Opera
-        fields = ['title', 'title_original', 'author', 'period',
-                'location', 'writing_date', 'description', 'quote',
-                'quote_original']
+        exclude = ['media', 'pub_date']
 
 class AttachForm(ModelForm):
     

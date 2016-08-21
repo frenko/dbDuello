@@ -1,6 +1,7 @@
 {% extends "webapp/base.html" %}
 {% load staticfiles %}
-{% block title %} | Index {% endblock %}
+{% load i18n %}
+{% block title %} | {% trans 'Latest Operas' %} {% endblock %}
 {% block css_style %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/item_list.css' %}" />
@@ -34,8 +35,8 @@
 {% else %}
     <div class="list-warning">
         <div class="alert alert-warning" role="alert">
-            <span class="sr-only">Error:</span>
-            Sorry, no books matching your query
+            <span class="sr-only">{% trans 'Error:' %}</span>
+            {% trans 'Sorry, no books matching your query' %}
         </div>
     <div>
 {% endif %}

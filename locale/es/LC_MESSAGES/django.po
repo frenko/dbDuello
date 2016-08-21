@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-21 18:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: webapp/models.py:6
+msgid "Attachment"
+msgstr "Adjunto archivo"
+
+#: webapp/models.py:7
+msgid "File Name"
+msgstr "Nombre del archivo"
+
+#: webapp/models.py:8
+msgid "File Type"
+msgstr "Tipo de archivo"
+
+
+#: webapp/models.py:9
+msgid "File Size"
+msgstr "Tamaño del archivo"
+
+#: webapp/models.py:10
+msgid "Notes"
+msgstr "Notas"
+
+#: webapp/models.py:16 webapp/templates/webapp/home.html:9
+msgid "Title"
+msgstr "Título"
+
+#: webapp/models.py:17 webapp/templates/webapp/home.html:19
+msgid "Original Title"
+msgstr "Titulo Original"
+
+#: webapp/models.py:18 webapp/templates/webapp/home.html:29
+msgid "Author"
+msgstr "Autor"
+
+#: webapp/models.py:19
+msgid "Period"
+msgstr "Período"
+
+#: webapp/models.py:20 webapp/templates/webapp/home.html:39
+msgid "Location"
+msgstr "Localización"
+
+#: webapp/models.py:21
+msgid "Writing Date"
+msgstr "Fecha de escritura"
+
+#: webapp/models.py:22
+msgid "Description"
+msgstr "Descripción"
+
+#: webapp/models.py:23
+msgid "Quote"
+msgstr "Citar"
+
+#: webapp/models.py:24
+msgid "Original Quote"
+msgstr "Cita Original"
+
+#: webapp/models.py:26
+msgid "Published Date"
+msgstr "Fecha de Publicación"
+
+#: webapp/templates/webapp/add.html:5
+msgid "Add New Opera"
+msgstr "Agregar nueva Opera"
+
+#: webapp/templates/webapp/add.html:11 webapp/templates/webapp/navbar.html:24
+msgid "Add Opera"
+msgstr "Añadir Opera"
+
+#: webapp/templates/webapp/add.html:41
+msgid "Reset"
+msgstr "Reiniciar"
+
+#: webapp/templates/webapp/add.html:42
+msgid "Add"
+msgstr "Añadir"
+
+#: webapp/templates/webapp/allopera.html:4
+#: webapp/templates/webapp/navbar.html:23
+msgid "All Operas"
+msgstr "Todas las Óperas"
+
+#: webapp/templates/webapp/base.html:6 webapp/templates/webapp/navbar.html:17
+msgid "Database Duellonline"
+msgstr "Database Duellonline"
+
+#: webapp/templates/webapp/home.html:4
+msgid "Home Page"
+msgstr "Página de inicio"
+
+#: webapp/templates/webapp/home.html:49
+msgid "Year"
+msgstr "Año"
+
+#: webapp/templates/webapp/latest.html:4
+msgid "Latest Operas"
+msgstr "Las últimas óperas"
+
+#: webapp/templates/webapp/latest.html:38
+msgid "Error:"
+msgstr "Error:"
+
+#: webapp/templates/webapp/latest.html:39
+msgid "Sorry, no books matching your query"
+msgstr "Lo sentimos, no hay libros que coincidan con su búsqueda"
+
+#: webapp/templates/webapp/navbar.html:21
+msgid "Home"
+msgstr "Página de inicio"
+
+#: webapp/templates/webapp/navbar.html:22
+msgid "Latest Opera"
+msgstr "Las últimas óperas"

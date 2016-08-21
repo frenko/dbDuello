@@ -1,6 +1,7 @@
 {% extends "webapp/base.html" %}
 {% load staticfiles %}
-{% block title %} | All Operas {% endblock %}
+{% load i18n %}
+{% block title %} | {% trans 'All Operas' %} {% endblock %}
 {% block css_style %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/item_list.css' %}" />

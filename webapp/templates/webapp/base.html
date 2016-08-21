@@ -1,8 +1,9 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     
-    <title>Database Duellonline{% block title %}{% endblock %}</title>
+    <title>{% trans 'Database Duellonline' %}{% block title %}{% endblock %}</title>
     {% load staticfiles %}
     {% load bootstrap3 %}
     {% block css_style %}

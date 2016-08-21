@@ -1,21 +1,17 @@
 {% extends "webapp/base.html" %}
 {% load staticfiles %}
 {% load widget_tweaks %}
-{% block title %} | Add New Opera {% endblock %}
+{% load i18n %}
+{% block title %} | {% trans 'Add New Opera' %} {% endblock %}
 {% include "webapp/navbar.html" %}
 
 {% block content %}
   <header>
     <center>
-      <h1>Add Opera</h1>
+      <h1>{% trans 'Add Opera' %}</h1>
     </center>
   </header>
   
-  {% if request.method == 'POST' %}
-  
-  porcoddio
-  
-  {% else %}
   <form id="mega-form" class="form-horizontal" method="POST" action="{% url 'webapp:add' %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ opera_forms.management_form }}
@@ -42,15 +38,11 @@
     </div>
     {% endfor %}
     <div class="form-group" align="center">
-      <button id="clear" class="btn btn-danger" onClick='resetForm()' type="button" >Reset</button>
-      <button id="submit_button" class="btn btn-primary" type="submit">Add</button>
+      <button id="clear" class="btn btn-danger" onClick='resetForm()' type="button" >{% trans 'Reset' %}</button>
+      <button id="submit_button" class="btn btn-primary" type="submit">{% trans 'Add' %}</button>
     </div>
 
   </form>
-  
-  
-  
-{% endif %}
 {% endblock %}
 
 {% block js_block %}
