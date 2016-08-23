@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Other stuff
+media/
+requirements.txt
+webapp/migrations/
+
 # C extensions
 *.so
 
