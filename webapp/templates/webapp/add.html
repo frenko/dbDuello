@@ -6,14 +6,6 @@
 {% include "webapp/navbar.html" %}
 
 {% block content %}
-<div id="blue">
-	<div class="container">
-		<div class="row">
-			<h3>{% trans 'Add Opera' %}</h3>
-		</div><!-- /row -->
-	</div> <!-- /container -->
-</div><!-- /blue -->
-
 <div class="container mtb">
 	  
   <form id="mega-form" class="form-horizontal" method="POST" action="{% url 'webapp:add' %}" enctype="multipart/form-data">

@@ -81,10 +81,12 @@ def latest(request):
 def view_opera(request, opera_id):
     opera = get_object_or_404(Opera, pk=opera_id)
     
-    if len(opera.media.all()) > 0:
+    n_attach = len(opera.media.all())
+    
+    if n_attach > 0:
         attachments = opera.media.all()
     else:
         attachments = None
     
-    context = {'opera': opera, 'attachments': attachments}
+    context = {'opera': opera, 'attachments': attachments, 'n_attach': n_attach}
     return render(request, 'webapp/details.html', context)

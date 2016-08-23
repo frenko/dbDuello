@@ -8,14 +8,6 @@
 {% endblock %}
 {% include "webapp/navbar.html" %}
 {% block content %}
-<div id="blue">
-	<div class="container">
-		<div class="row">
-			<h3>{% trans 'All Operas' %}</h3>
-		</div><!-- /row -->
-	</div> <!-- /container -->
-</div><!-- /blue -->
-
 <div class="container mtb">
 	<div id="item-list">
 	{% for opera in operas %}

@@ -5,24 +5,6 @@
 {% block title %} | Opera: {{ opera.title }} {% endblock %}
 
 {% block content %}
-<div id="blue">
-	<div class="container">
-		<div class="row">
-			{% if opera.title %}
-			<h3>{{ opera.title }}
-				{% if opera.author %}
-				<small>{{ opera.author }}</small>
-				{% else %}
-				<small>{% trans 'Unknown Author' %}</small>
-				{% endif %}
-			</h3>
-			{% else %}
-			<h3>{% trans 'Opera ID:' %}{{ opera.id }}</h3>
-			{% endif %}
-		</div><!-- /row -->
-	</div> <!-- /container -->
-</div><!-- /blue -->
-
 <div class="container mtb">
     
 	<div class="panel panel-default">
@@ -91,20 +73,25 @@
 	{% if attachments %}    
     <div class="panel panel-primary">
 		<div class="panel-heading">
-			<h3 class="panel-title">{% trans 'Attachments' %}</h3>
+			<h3 class="panel-title">
+				{% if n_attach > 1 %}
+				{% trans 'Attachments' %}
+				{% elif n_attach == 1 %}
+				{% trans 'Attachment' %}
+				{% endif %}
+				</h3>
 		</div>
 		<div class="panel-body">
-		
 		{% for attach in attachments %}	
 		<ul class="list-group">
-			<li class="list-group-item"><h6>File Name: </h6>{{ attach.file_name }}</li>
-			<li class="list-group-item"><h6>File Type: </h6>{{ attach.file_type }}</li>
-			<li class="list-group-item"><h6>File Size: </h6>{{ attach.file_size | size_fmt}}</li>
-			<li class="list-group-item"><h6>Notes: </h6>{{ attach.notes }}</li>
-			<li class="list-group-item"><center><a class="btn btn-primary btn-lg" href="{{ attach.file_upload.url }}" role="button">Download</a></center></li>
+			<li class="list-group-item"><h6>{% trans 'File Name:' %} </h6>{{ attach.file_name }}</li>
+			<li class="list-group-item"><h6>{% trans 'File Type:' %} </h6>{{ attach.file_type }}</li>
+			<li class="list-group-item"><h6>{% trans 'File Size:' %} </h6>{{ attach.file_size | size_fmt}}</li>
+			<li class="list-group-item"><h6>{% trans 'Notes:' %} </h6>{{ attach.notes }}</li>
+			<li class="list-group-item"><center><a class="btn btn-primary btn-lg" href="{{ attach.file_upload.url }}" role="button">{% trans 'Download' %}</a></center></li>
 		</ul>
-		</div>	
 		{% endfor %}
+		</div>
 	</div>        
     {% endif %}
 
