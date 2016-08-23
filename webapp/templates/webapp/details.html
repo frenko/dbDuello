@@ -1,68 +1,115 @@
 {% extends "webapp/base.html" %}
 {% load staticfiles %}
+{% load webapp_utils %}
 {% load i18n %}
 {% block title %} | Opera: {{ opera.title }} {% endblock %}
 
 {% block content %}
-<header class="page-header" style="margin-top:0px">
-    <h1>{{ opera.title }}
-        <small>{{ opera.author }}</small>
-    </h1>
-</header>
+<div id="blue">
+	<div class="container">
+		<div class="row">
+			{% if opera.title %}
+			<h3>{{ opera.title }}
+				{% if opera.author %}
+				<small>{{ opera.author }}</small>
+				{% else %}
+				<small>{% trans 'Unknown Author' %}</small>
+				{% endif %}
+			</h3>
+			{% else %}
+			<h3>{% trans 'Opera ID:' %}{{ opera.id }}</h3>
+			{% endif %}
+		</div><!-- /row -->
+	</div> <!-- /container -->
+</div><!-- /blue -->
 
-
-<article>
-    <h4>Details</h4>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Field</th>
-                <th>Value</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Original Title</td>
-                <td>{{ opera.title_original }}</td>
-            </tr>
-            <tr>
-                <td>Period</td>
-                <td>{{ opera.period }}</td>
-            </tr>
-            <tr>
-                <td>Location</td>
-                <td>{{ opera.location }}</td>
-            </tr>
-            <tr>
-                <td>Writing date</td>
-                <td>{{ opera.writing_date }}</td>
-            </tr>
-            <tr>
-                <td>Description</td>
-                <td>{{ opera.description }}</td>
-            </tr>
-            <tr>
-                <td>quote</td>
-                <td>{{ opera.quote }}</td>
-            </tr>
-            <tr>
-                <td>Original quote</td>
-                <td>{{ opera.quote_original }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container mtb">
     
-    {% if attachments %}
-        
-        {% for attach in attachments %}
-        
-            <a href="{{ attach.file_upload.url }}">{{ attach.file_name }}</a>
-            <br />
-            {{ attach.notes }}
-        {% endfor %}
-        
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">{% trans 'Original Title' %}</h3>
+		</div>
+		<div class="panel-body">
+			{% if opera.title_original %}{{ opera.title_original }}{% else %} --- {% endif %}
+		</div>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">{% trans 'Period' %}</h3>
+		</div>
+		<div class="panel-body">
+			{% if opera.period %}{{ opera.period }}{% else %} --- {% endif %}
+		</div>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">{% trans 'Location' %}</h3>
+		</div>
+		<div class="panel-body">
+			{% if opera.location %}{{ opera.location }}{% else %} --- {% endif %}
+		</div>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">{% trans 'Writing Date' %}</h3>
+		</div>
+		<div class="panel-body">
+			{% if opera.writing_date %}{{ opera.writing_date }}{% else %} --- {% endif %}
+		</div>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">{% trans 'Description' %}</h3>
+		</div>
+		<div class="panel-body">
+			{% if opera.description %}{{ opera.description }}{% else %} --- {% endif %}
+		</div>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">{% trans 'Quote' %}</h3>
+		</div>
+		<div class="panel-body">
+			{% if opera.quote %}{{ opera.quote }}{% else %} --- {% endif %}
+		</div>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">{% trans 'Original Quote' %}</h3>
+		</div>
+		<div class="panel-body">
+			{% if opera.quote_original %}{{ opera.quote_original }}{% else %} --- {% endif %}
+		</div>
+	</div>
+	
+	{% if attachments %}    
+    <div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">{% trans 'Attachments' %}</h3>
+		</div>
+		<div class="panel-body">
+		
+		{% for attach in attachments %}	
+		<ul class="list-group">
+			<li class="list-group-item"><h6>File Name: </h6>{{ attach.file_name }}</li>
+			<li class="list-group-item"><h6>File Type: </h6>{{ attach.file_type }}</li>
+			<li class="list-group-item"><h6>File Size: </h6>{{ attach.file_size | size_fmt}}</li>
+			<li class="list-group-item"><h6>Notes: </h6>{{ attach.notes }}</li>
+			<li class="list-group-item"><center><a class="btn btn-primary btn-lg" href="{{ attach.file_upload.url }}" role="button">Download</a></center></li>
+		</ul>
+		</div>	
+		{% endfor %}
+	</div>        
     {% endif %}
+
+</div>
+        
     
-</article>
 
 {% endblock %}

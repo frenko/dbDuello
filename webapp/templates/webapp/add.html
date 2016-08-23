@@ -6,12 +6,16 @@
 {% include "webapp/navbar.html" %}
 
 {% block content %}
-  <header>
-    <center>
-      <h1>{% trans 'Add Opera' %}</h1>
-    </center>
-  </header>
-  
+<div id="blue">
+	<div class="container">
+		<div class="row">
+			<h3>{% trans 'Add Opera' %}</h3>
+		</div><!-- /row -->
+	</div> <!-- /container -->
+</div><!-- /blue -->
+
+<div class="container mtb">
+	  
   <form id="mega-form" class="form-horizontal" method="POST" action="{% url 'webapp:add' %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ opera_forms.management_form }}
@@ -26,7 +30,6 @@
       </div>
     </div>
     {% endfor %}
-    
     {% for field in attach_forms %}
     <div class="form-group">
       <div class="col-sm-12">
@@ -43,13 +46,18 @@
     </div>
 
   </form>
+</div>
 {% endblock %}
 
 {% block js_block %}
 {{ block.super }}
-  <script>
-    function resetForm(){
-      $('#mega-form')[0].reset();
-    }
-  </script>
+<script type="text/javascript" src="{% static 'js/bootstrap-filestyle.min.js' %}"></script>
+<script>
+	
+	$(":file").filestyle();
+		
+	function resetForm(){
+		$('#mega-form')[0].reset();
+	}
+</script>
 {% endblock %}
