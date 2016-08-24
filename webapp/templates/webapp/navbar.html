@@ -2,6 +2,7 @@
 {% url 'webapp:latest' as latest %}
 {% url 'webapp:allopera' as allopera %}
 {% url 'webapp:add' as add %}
+{% url 'webapp:login' as login %}
 {% load i18n %}
 
 <!-- Fixed navbar -->
@@ -47,6 +48,8 @@
 					{% trans 'Add Opera' %}
 					{% elif modif %}
 						{% trans 'Modify Opera ID:' %} {{ opera_id }}
+					{% elif request.path == login %}
+						{% trans 'Login:' %}
 					{% else %}
 						{% if opera.title %}
 						{{ opera.title }}

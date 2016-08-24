@@ -16,6 +16,9 @@ def index(request):
     context = {'request': request,
                 'all_operas': all_operas}
     return render(request, 'webapp/home.html', context)
+    
+def login(request):
+	return render(request, 'webapp/login.html');
 
 def add(request):
     '''
