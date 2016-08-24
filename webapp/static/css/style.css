@@ -37,6 +37,7 @@ div .bordered {
 	padding-bottom: 10px;
 	margin-right: 2spx;
 }
+
 /*	################################################################
 	BOOTSTRAP MODIFICATIONS & TWEAKS
 ################################################################# */
@@ -85,6 +86,10 @@ div .bordered {
 	margin-bottom: 80px;
 }
 
+.hline-w {
+	border-bottom: 2px solid #ffffff;
+	margin-bottom: 25px;
+}
 
 /* ###############################################################
 	Panel modification											#
@@ -110,11 +115,6 @@ div .bordered {
 	font-family: 'Raleway', sans-serif;
 	
 }
-
-
-
-
-
 
 .input-group-addon {
 	font-size: 14px;
@@ -152,7 +152,6 @@ div .bordered {
 }
 
 
-
 /*	################################################################
 	SITE WRAPS
 ################################################################# */
@@ -179,3 +178,27 @@ div .bordered {
 	margin-left: 15px;
 }
 
+/* Footer */
+#footerwrap {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background: #344D6B;
+}
+
+#footerwrap p {
+	color: #bfc9d3;
+}
+
+#footerwrap h4 {
+	color: white;
+}
+
+#footerwrap i {
+	font-size: 30px;
+	color: #bfc9d3;
+	padding-right: 25px;
+}
+
+#footerwrap i:hover {
+	color: #00b3fe
+}
