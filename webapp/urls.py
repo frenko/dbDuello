@@ -7,8 +7,11 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^latest/$', views.latest, name='latest'),
     url(r'^add/$', views.add, name='add'),
+    url(r'^login/$', views.log_in, name='login'),
+    url(r'^logout/$', views.log_out, name='logout'),
     url(r'^allopera/$', views.allopera, name='allopera'),
     url(r'^view/(?P<opera_id>[0-9]+)/$', views.view_opera, name='view_opera'),
     url(r'^mod/(?P<opera_id>[0-9]+)/$', views.mod_opera, name='mod_opera'),
     url(r'^delete/(?P<opera_id>[0-9]+)/$', views.delete, name='delete'),
+    url(r'^admin/user/(?P<user_id>[0-9]+)/$', views.user_profile, name='user_profile'),
 ]

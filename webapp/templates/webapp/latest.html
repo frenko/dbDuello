@@ -16,7 +16,7 @@
         <a href="{% url 'webapp:view_opera' opera.id %}">
             <div class="item-div row">
                 <div class="item-thumbnail hidden-xs col-sm-1 vcenter">
-                    <span class="glyphicon glyphicon-book"></span>
+                    <i class="fa fa-book fa-5x" aria-hidden="true" style="color: #344D6B"></i>
                 </div>
                 <div class="item-main col-xs-12 col-sm-7 vcenter">
                     <p class="item-title"
@@ -25,8 +25,8 @@
                 </div>
                 <div class="item-sub col-xs-12 col-sm-3 vcenter">
                     <ul class="meta-list list-unstyled">
-                        <li>{{ opera.writing_date }}</li>
-                        <li><span class="glyphicon glyphicon-user"></span> {{ opera.author }}</li>
+                        <li><i class="fa fa-clock-o fa-lg" aria-hidden="true" style="color: #344D6B"></i>  {{ opera.writing_date }}</li>
+                        <li><i class="fa fa-user fa-lg" aria-hidden="true" style="color: #344D6B"></i>  {{ opera.author }}</li>
                     </ul>
                 </div>
             </div>

@@ -1,0 +1,13 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+{% load i18n %}
+{% block title %} | {% trans 'User Profile:' %} {{ user.username }}{% endblock %}
+{% include "webapp/navbar.html" %}
+
+{% block content %}
+<div class="container mtb">	  
+<p>{{ user.username }}</p>
+<p>{{ user.full_name }}</p>
+</div>
+{% endblock %}

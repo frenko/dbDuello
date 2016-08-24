@@ -2,6 +2,8 @@
 {% url 'webapp:latest' as latest %}
 {% url 'webapp:allopera' as allopera %}
 {% url 'webapp:add' as add %}
+{% url 'webapp:login' as login %}
+{% url 'webapp:user_profile' as profile %}
 {% load i18n %}
 
 <!-- Fixed navbar -->
@@ -22,6 +24,18 @@
             <li {% if request.path == latest %}class="active"{% endif %}><a href="{% url 'webapp:latest' %}">{% trans 'Latest Opera' %}</a></li>
 			<li {% if request.path == allopera %}class="active"{% endif %}><a href="{% url 'webapp:allopera' %}">{% trans 'All Operas' %}</a></li>
 			<li {% if request.path == add %}class="active"{% endif %}><a href="{% url 'webapp:add' %}">{% trans 'Add Opera' %}</a></li>
+			{% if user.is_authenticated %}
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> {% trans 'Hello:' %} {{ user.username }} <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+				<ul class="dropdown-menu">
+					<li><a href="{% url 'webapp:user_profile' user.id %}">{% trans 'View Profile' %}</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="{% url 'webapp:logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> {% trans 'Logout' %}</a></li>
+				</ul>
+			</li>
+			{% else %}
+			<li><a href="{% url 'webapp:login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> {% trans 'Login' %}</a></li>
+			{% endif %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -31,34 +45,9 @@
 		<div class="container">
 			<div class="row">
 				<h3>
-					{% if request.path == index %}
-					{% trans 'Home Page' %}
-					{% elif request.path == latest %}
-					{% trans 'Latest Operas' %}
-					{% elif request.path == allopera %}
-					{% trans 'All Operas' %}
-					
-						{% if request.GET.page %} |
-						{% trans 'Page:' %} {{ request.GET.page }}
-						{% else %} | {% trans 'Page:' %} 1
-						{% endif %}
-					
-					{% elif request.path == add %}
-					{% trans 'Add Opera' %}
-					{% elif modif %}
-						{% trans 'Modify Opera ID:' %} {{ opera_id }}
-					{% else %}
-						{% if opera.title %}
-						{{ opera.title }}
-						{% if opera.author %}
-						<small>{{ opera.author }}</small>
-						{% else %}
-						<small>{% trans 'Unknown Author' %}</small>
-						{% endif %}
-						{% else %}
-						{% trans 'Opera ID:' %} {{ opera.id }}
-						{% endif %}
-					{% endif %}
+					{% autoescape off %}
+					{{ header_page }}
+					{% endautoescape %}
 				</h3>
 			</div><!-- /row -->
 		</div> <!-- /container -->
