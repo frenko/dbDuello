@@ -73,7 +73,10 @@ div .bordered {
 }
 
 .navbar-default {
+/*
 	background-color: #384452;
+*/
+	background-color: #344D6B;
 	border-color: transparent;
 }
 
@@ -98,7 +101,7 @@ div .bordered {
 
 .panel-default > .panel-heading {
   color: #333;
-  background-color: #384452;
+  background-color: #7B95B3;
   border-color: #ddd;
 }
 
@@ -119,7 +122,7 @@ div .bordered {
 	line-height: 1;
 	color: #FFFFFF;
 	text-align: center;
-	background-color: #384452;
+	background-color: #7B95B3;
 	border-color: #848383;
 	border-radius: 3px;
 }

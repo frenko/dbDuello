@@ -6,8 +6,7 @@
 {% include "webapp/navbar.html" %}
 
 {% block content %}
-<div class="container mtb">
-	  
+<div class="container mtb">	  
   <form id="mega-form" class="form-horizontal" method="POST" action="{% url 'webapp:add' %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ opera_forms.management_form }}

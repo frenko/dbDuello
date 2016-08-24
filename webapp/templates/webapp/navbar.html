@@ -45,6 +45,8 @@
 					
 					{% elif request.path == add %}
 					{% trans 'Add Opera' %}
+					{% elif modif %}
+						{% trans 'Modify Opera ID:' %} {{ opera_id }}
 					{% else %}
 						{% if opera.title %}
 						{{ opera.title }}
@@ -56,7 +58,7 @@
 						{% else %}
 						{% trans 'Opera ID:' %} {{ opera.id }}
 						{% endif %}
-						{% endif %}
+					{% endif %}
 				</h3>
 			</div><!-- /row -->
 		</div> <!-- /container -->
