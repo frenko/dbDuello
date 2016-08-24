@@ -6,7 +6,9 @@
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/item_list.css' %}" />
 {% endblock %}
+
 {% block content %}
+<div class="container mtb">
 {% if latest_opera_list %}
     <div id="item-list">
     {% for opera in latest_opera_list %}
@@ -40,4 +42,7 @@
         </div>
     <div>
 {% endif %}
+</div>
+
+
 {% endblock %}

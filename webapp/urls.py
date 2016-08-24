@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^add/$', views.add, name='add'),
     url(r'^allopera/$', views.allopera, name='allopera'),
     url(r'^view/(?P<opera_id>[0-9]+)/$', views.view_opera, name='view_opera'),
+    url(r'^mod/(?P<opera_id>[0-9]+)/$', views.mod_opera, name='mod_opera'),
+    url(r'^delete/(?P<opera_id>[0-9]+)/$', views.delete, name='delete'),
 ]

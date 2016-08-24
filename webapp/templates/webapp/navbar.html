@@ -4,25 +4,62 @@
 {% url 'webapp:add' as add %}
 {% load i18n %}
 
-<!-- Static navbar -->
-<nav class="navbar navbar-default navbar-static-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{% url 'webapp:index' %}">{% trans 'Database Duellonline' %}</a>
+<!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'webapp:index' %}">{% trans 'Database Duellonline' %}</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li {% if request.path == index %}class="active"{% endif %}><a href="{% url 'webapp:index' %}">{% trans 'Home' %}</a></li>
+            <li {% if request.path == latest %}class="active"{% endif %}><a href="{% url 'webapp:latest' %}">{% trans 'Latest Opera' %}</a></li>
+			<li {% if request.path == allopera %}class="active"{% endif %}><a href="{% url 'webapp:allopera' %}">{% trans 'All Operas' %}</a></li>
+			<li {% if request.path == add %}class="active"{% endif %}><a href="{% url 'webapp:add' %}">{% trans 'Add Opera' %}</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li {% if request.path == index %}class="active"{% endif %}><a href="{% url 'webapp:index' %}">{% trans 'Home' %}</a></li>
-        <li {% if request.path == latest %}class="active"{% endif %}><a href="{% url 'webapp:latest' %}">{% trans 'Latest Opera' %}</a></li>
-        <li {% if request.path == allopera %}class="active"{% endif %}><a href="{% url 'webapp:allopera' %}">{% trans 'All Operas' %}</a></li>
-        <li {% if request.path == add %}class="active"{% endif %}><a href="{% url 'webapp:add' %}">{% trans 'Add Opera' %}</a></li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
-</nav>
+
+	<div id="coloredbar">
+		<div class="container">
+			<div class="row">
+				<h3>
+					{% if request.path == index %}
+					{% trans 'Home Page' %}
+					{% elif request.path == latest %}
+					{% trans 'Latest Operas' %}
+					{% elif request.path == allopera %}
+					{% trans 'All Operas' %}
+					
+						{% if request.GET.page %} |
+						{% trans 'Page:' %} {{ request.GET.page }}
+						{% else %} | {% trans 'Page:' %} 1
+						{% endif %}
+					
+					{% elif request.path == add %}
+					{% trans 'Add Opera' %}
+					{% elif modif %}
+						{% trans 'Modify Opera ID:' %} {{ opera_id }}
+					{% else %}
+						{% if opera.title %}
+						{{ opera.title }}
+						{% if opera.author %}
+						<small>{{ opera.author }}</small>
+						{% else %}
+						<small>{% trans 'Unknown Author' %}</small>
+						{% endif %}
+						{% else %}
+						{% trans 'Opera ID:' %} {{ opera.id }}
+						{% endif %}
+					{% endif %}
+				</h3>
+			</div><!-- /row -->
+		</div> <!-- /container -->
+	</div><!-- /coloredbar -->

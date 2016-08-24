@@ -55,6 +55,47 @@ def add(request):
         context = {'opera_forms': opera_forms, 
                 'attach_forms': attach_forms}
         return render(request, 'webapp/add.html', context)
+
+def view_opera(request, opera_id):
+    opera = get_object_or_404(Opera, pk=opera_id)
+    
+    n_attach = len(opera.media.all())
+    
+    if n_attach > 0:
+        attachments = opera.media.all()
+    else:
+        attachments = None
+    
+    context = {'opera': opera, 'attachments': attachments, 'n_attach': n_attach}
+    return render(request, 'webapp/details.html', context)        
+
+def mod_opera(request, opera_id):
+	
+	modif = True
+	
+	opera = get_object_or_404(Opera, pk=opera_id)
+	
+	if request.method == 'POST':
+		opera_form = OperaForm(request.POST)
+		
+		if opera_form.is_valid():
+			operaValid = opera_form.save(commit=False)
+			operaValid.id = opera_id
+			operaValid.save()
+			return HttpResponseRedirect(reverse('webapp:view_opera', args=(opera_id,)))
+	else:
+		opera_form = OperaForm(instance=opera)
+		
+		context = {'opera_form': opera_form, 
+				'opera_id': opera_id, 'modif': modif}
+		
+		return render(request, 'webapp/modify.html', context)
+
+def delete(request, opera_id):
+	opera = get_object_or_404(Opera, pk=opera_id)
+	opera.delete()
+	return True
+	
         
 def allopera(request):
     allOpera = Opera.objects.all()
@@ -77,14 +118,3 @@ def latest(request):
     latest_opera_list = Opera.objects.order_by('-pub_date')[:15]
     context = {'latest_opera_list': latest_opera_list}
     return render(request, 'webapp/latest.html', context)
-
-def view_opera(request, opera_id):
-    opera = get_object_or_404(Opera, pk=opera_id)
-    
-    if len(opera.media.all()) > 0:
-        attachments = opera.media.all()
-    else:
-        attachments = None
-    
-    context = {'opera': opera, 'attachments': attachments}
-    return render(request, 'webapp/details.html', context)
