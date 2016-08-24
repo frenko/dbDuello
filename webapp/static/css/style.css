@@ -81,6 +81,16 @@ div .bordered {
 	border-color: transparent;
 }
 
+.dropdown-menu {
+	background: #344D6B;
+}
+
+.dropdown-menu > li > a {
+	color: white;
+	font-weight: 700;
+	font-size: 12px;
+}
+
 .mtb {
 	margin-top: 80px;
 	margin-bottom: 80px;

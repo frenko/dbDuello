@@ -1,25 +1,27 @@
 {% extends "webapp/base.html" %}
 {% load webapp_utils %}
 {% load i18n %}
-{% block title %} | {% trans 'Opera:' %} {{ opera.title }} {% endblock %}
+{% block title %} | {% if opera.title %}{% trans 'Opera:' %} {{ opera.title }} {% else %}{% trans 'Opera ID:' %} {{ opera.id }} {% endif %} {% endblock %}
 
 {% block content %}
 <div class="container mtb">
 	
+	{% if user.is_authenticated %}
     <div class="btn-toolbar" role="toolbar" aria-label="toolbar">
 		<div class="btn-group pull-right" role="group" aria-label="action toolbar">
 
 			<a href="{% url 'webapp:mod_opera' opera.id %}" type="button" class="btn btn-default" aria-label='edit opera' title='edit opera'>
-				<span class="glyphicon glyphicon glyphicon-pencil"></span>
+				<i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
 			</a>
 			<button data-toggle="modal" data-target="#confirm-deletion-modal"
 			type="button" class="btn btn-default" aria-label='delete volume' title='delete volume'>
-				<span class="glyphicon glyphicon-trash"></span>
+				<i class="fa fa-trash fa-lg" aria-hidden="true"></i>
 			</button>
-
 		</div>
 	</div>
+	
 	<br />
+	{% endif %}
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">{% trans 'Original Title' %}</h3>
