@@ -3,40 +3,39 @@
 {% load widget_tweaks %}
 {% load i18n %}
 {% block title %} | {% trans 'Add New Opera' %} {% endblock %}
-{% include "webapp/navbar.html" %}
 
 {% block content %}
-<div class="container mtb">	  
-  <form id="mega-form" class="form-horizontal" method="POST" action="{% url 'webapp:add' %}" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ opera_forms.management_form }}
-    
-    {% for field in opera_forms %}
-    <div class="form-group">
-      <div class="col-sm-12">
-        <div class="input-group">
-          <label class="input-group-addon" for="{{ field.id_for_label }}">{{ field.label }}</label> 
-          {{ field | add_class:"form-control" }}
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-    {% for field in attach_forms %}
-    <div class="form-group">
-      <div class="col-sm-12">
-        <div class="input-group">
-          <label class="input-group-addon" for="{{ field.id_for_label }}">{{ field.label }}</label> 
-          {{ field | add_class:"form-control" }}
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-    <div class="form-group" align="center">
-      <button id="clear" class="btn btn-danger" onClick='resetForm()' type="button" >{% trans 'Reset' %}</button>
-      <button id="submit_button" class="btn btn-primary" type="submit">{% trans 'Add' %}</button>
-    </div>
+{% include "webapp/navbar.html" %}
+<div class="container mtb">
+	<form id="mega-form" class="form-horizontal" method="POST" action="{% url 'webapp:add' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ opera_forms.management_form }}
 
-  </form>
+		{% for field in opera_forms %}
+		<div class="form-group">
+			<div class="col-sm-12">
+				<div class="input-group">
+					<label class="input-group-addon" for="{{ field.id_for_label }}">{{ field.label }}</label> 
+					{{ field | add_class:"form-control" }}
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+		{% for field in attach_forms %}
+		<div class="form-group">
+			<div class="col-sm-12">
+				<div class="input-group">
+					<label class="input-group-addon" for="{{ field.id_for_label }}">{{ field.label }}</label> 
+					{{ field | add_class:"form-control" }}
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+		<div class="form-group" align="center">
+			<button id="clear" class="btn btn-danger" onClick='resetForm()' type="button" >{% trans 'Reset' %}</button>
+			<button id="submit_button" class="btn btn-primary" type="submit">{% trans 'Add' %}</button>
+		</div>
+	</form>
 </div>
 {% endblock %}
 
@@ -44,11 +43,11 @@
 {{ block.super }}
 <script type="text/javascript" src="{% static 'js/bootstrap-filestyle.min.js' %}"></script>
 <script>
-	
-	$(":file").filestyle();
-		
-	function resetForm(){
-		$('#mega-form')[0].reset();
-	}
+
+$(":file").filestyle();
+
+function resetForm(){
+$('#mega-form')[0].reset();
+}
 </script>
 {% endblock %}

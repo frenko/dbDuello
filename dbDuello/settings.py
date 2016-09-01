@@ -138,6 +138,7 @@ LOCALE_PATHS = [
 	]
 	
 LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
 	
 #Media Directory
 

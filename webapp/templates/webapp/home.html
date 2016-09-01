@@ -2,11 +2,13 @@
 {% load staticfiles %}
 {% load i18n %}
 {% block title %} | {% trans 'Home Page' %} {% endblock %}
-{% include "webapp/navbar.html" %}
+
 
 {% block content %}
-
+{% include "webapp/navbar.html" %}
 <div class="container mtb">
+	
+	<h1>{% trans 'Field search box' %}</h1>	
 	<form>
 	  <div class="form-group row">
 		<label for="inputEmail3" class="col-sm-2 col-form-label">{% trans 'Title' %}</label>
@@ -59,6 +61,41 @@
 		</div>
 	  </div>
 	</form>
+
+	<div class="vspace"></div>
+
+	<h1 data-trigger="hover" data-placement="auto top" data-toggle="popover" 
+                        title="Description"  
+                        aria-label="Field description" 
+                        data-content="This research field permit to search over all fields">{% trans 'Fulltext search box' %}</h1>
+	<form action="" role="form">
+		<div class="input-group">
+			<input name="q" class="form-control" type="text" value=""/>
+			<span class="input-group-btn">
+				<button type="submit" class="btn btn-primary">
+					<i class="fa fa-search" aria-hidden="true"></i>
+					<span class="hidden-xs">{% trans 'Search' %}</span>
+				</button>
+			</span>
+		</div>
+	</form>
+	
 </div> <!--/container -->
 
+{% endblock %}
+
+{% block js_block %}
+{{ block.super }}
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+		$('[data-toggle="tooltip"]').tooltip();   
+
+	});
+function initializePopover(){
+        $('[data-toggle="popover"]').popover();
+    }
+    initializePopover();
+</script>
 {% endblock %}

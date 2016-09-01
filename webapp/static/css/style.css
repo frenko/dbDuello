@@ -38,6 +38,16 @@ div .bordered {
 	margin-right: 2spx;
 }
 
+h1 {
+	border-bottom: 2px solid #000000;
+	margin-bottom: 40px;
+	padding-bottom: 15px;
+}
+
+div .vspace {
+	margin-bottom: 100px;
+}
+
 /*	################################################################
 	BOOTSTRAP MODIFICATIONS & TWEAKS
 ################################################################# */
@@ -92,12 +102,17 @@ div .bordered {
 }
 
 .mtb {
-	margin-top: 80px;
+	margin-top: 20px;
 	margin-bottom: 80px;
 }
 
 .hline-w {
 	border-bottom: 2px solid #ffffff;
+	margin-bottom: 25px;
+}
+
+.hline-b {
+	border-bottom: 2px solid #346488;
 	margin-bottom: 25px;
 }
 
@@ -193,6 +208,10 @@ div .bordered {
 	padding-top: 60px;
 	padding-bottom: 60px;
 	background: #344D6B;
+	position: relative;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
 }
 
 #footerwrap p {

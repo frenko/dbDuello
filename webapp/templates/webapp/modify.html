@@ -4,10 +4,11 @@
 {% load webapp_utils %}
 {% load i18n %}
 {% block title %} | {% trans 'Modify Opera ID:' %} {{ opera_id }} {% endblock %}
+    {% include 'webapp/navbar.html' %}
 
 {% block content %}
+{% include 'webapp/navbar.html' %}
 <div class="container mtb">
-	
 	
 	<form id="mega-form" class="form-horizontal" method="POST" action="#" enctype="multipart/form-data">
     {% csrf_token %}
@@ -23,18 +24,6 @@
       </div>
     </div>
     {% endfor %}
-<!--
-    {% for field in attach_forms %}
-    <div class="form-group">
-      <div class="col-sm-12">
-        <div class="input-group">
-          <label class="input-group-addon" for="{{ field.id_for_label }}">{{ field.label }}</label> 
-          {{ field | add_class:"form-control" }}
-        </div>
-      </div>
-    </div>
-    {% endfor %}
--->
     <div class="form-group" align="center">
       <button id="clear" class="btn btn-danger" onClick='resetForm()' type="button" >{% trans 'Reset' %}</button>
       <button id="submit_button" class="btn btn-primary" type="submit">{% trans 'Update' %}</button>

@@ -3,20 +3,34 @@
 <html lang="en">
 <head>
     
-    <title>{% trans 'Database Duellonline' %}{% block title %}{% endblock %}</title>
+    <title>{% trans 'Administration Page Duellonline' %} | {% trans 'User:' %} {{ user.username }}{% block title %}{% endblock %}</title>
     {% load staticfiles %}
     {% load bootstrap3 %}
     {% block css_style %}
     {# Load CSS #}
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/sidebar_admin.css' %}" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     {% endblock %}
 </head>
 
-<body>      
-    {% block content %}{% endblock %}   
-        
+<body>
+	{% include 'webapp/users/userbar.html' %}
+	<div class="container-fluid mtb">
+
+		<div class="row">
+			<!-- Sidebar Dx -->
+			<div class="col-md-4 sidebar-offcanvas">
+				{% include 'webapp/users/sidebar.html' %}
+			</div>
+			<!-- Maincontent -->
+			<div class="col-lg-8">
+				{% block admin_content %}{% endblock %}
+			</div>
+		</div>
+	
+	</div>
     {% block js_block %}
     {% bootstrap_javascript jquery=1 %}
     {% endblock %}
