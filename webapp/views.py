@@ -110,7 +110,6 @@ def latest(request):
 
     Return latest operas added in the database
     """
-    #~ latest_opera_list = Opera.objects.order_by('-pub_date')[:15]
     latest_opera_list = get_latest_opera(15)
 
     header_page = _('Recently added Operas')
@@ -124,6 +123,11 @@ def latest(request):
 
 
 def listopera(request):
+    """
+    List Opera
+    
+    Return a list of all opera in the database
+    """
     allOpera = Opera.objects.all()
 
     pagination = True
