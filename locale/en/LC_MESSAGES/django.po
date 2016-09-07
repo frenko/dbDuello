@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-21 18:02+0200\n"
+"POT-Creation-Date: 2016-08-26 17:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,63 +17,65 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: webapp/models.py:6
+#: webapp/models.py:6 webapp/templates/webapp/details.html:95
 msgid "Attachment"
 msgstr "Attachment"
 
-#: webapp/models.py:7
+#: webapp/models.py:8
 msgid "File Name"
 msgstr "File Name"
 
-#: webapp/models.py:8
+#: webapp/models.py:10
 msgid "File Type"
 msgstr "File Type"
 
-#: webapp/models.py:9
+#: webapp/models.py:12
 msgid "File Size"
 msgstr "File Size"
 
-#: webapp/models.py:10
+#: webapp/models.py:13
 msgid "Notes"
 msgstr "Notes"
 
-#: webapp/models.py:16 webapp/templates/webapp/home.html:9
+#: webapp/models.py:19 webapp/templates/webapp/home.html:14
 msgid "Title"
 msgstr "Title"
 
-#: webapp/models.py:17 webapp/templates/webapp/home.html:19
+#: webapp/models.py:20 webapp/templates/webapp/details.html:27
+#: webapp/templates/webapp/home.html:24
 msgid "Original Title"
 msgstr "Original Title"
 
-#: webapp/models.py:18 webapp/templates/webapp/home.html:29
+#: webapp/models.py:22 webapp/templates/webapp/home.html:34
 msgid "Author"
 msgstr "Author"
 
-#: webapp/models.py:19
+#: webapp/models.py:23 webapp/templates/webapp/details.html:36
 msgid "Period"
 msgstr "Period"
 
-#: webapp/models.py:20 webapp/templates/webapp/home.html:39
+#: webapp/models.py:24 webapp/templates/webapp/details.html:45
+#: webapp/templates/webapp/home.html:44
 msgid "Location"
 msgstr "Location"
 
-#: webapp/models.py:21
+#: webapp/models.py:26 webapp/templates/webapp/details.html:54
 msgid "Writing Date"
 msgstr "Writing Date"
 
-#: webapp/models.py:22
+#: webapp/models.py:28 webapp/templates/webapp/details.html:63
 msgid "Description"
 msgstr "Description"
 
-#: webapp/models.py:23
+#: webapp/models.py:29 webapp/templates/webapp/details.html:72
 msgid "Quote"
 msgstr "Quote"
 
-#: webapp/models.py:24
+#: webapp/models.py:30 webapp/templates/webapp/details.html:81
 msgid "Original Quote"
 msgstr "Original Quote"
 
-#: webapp/models.py:26
+#: webapp/models.py:32
 msgid "Published Date"
 msgstr "Published Date"
 
@@ -81,51 +83,197 @@ msgstr "Published Date"
 msgid "Add New Opera"
 msgstr "Add New Opera"
 
-#: webapp/templates/webapp/add.html:11 webapp/templates/webapp/navbar.html:24
-msgid "Add Opera"
-msgstr "Add Opera"
-
-#: webapp/templates/webapp/add.html:41
+#: webapp/templates/webapp/add.html:35 webapp/templates/webapp/modify.html:39
 msgid "Reset"
 msgstr "Reset"
 
-#: webapp/templates/webapp/add.html:42
+#: webapp/templates/webapp/add.html:36
 msgid "Add"
 msgstr "Add"
 
-#: webapp/templates/webapp/allopera.html:4
-#: webapp/templates/webapp/navbar.html:23
-msgid "All Operas"
-msgstr "All Operas"
+#: webapp/templates/webapp/admin/user.html:5
+msgid "User Profile:"
+msgstr ""
 
-#: webapp/templates/webapp/base.html:6 webapp/templates/webapp/navbar.html:17
+#: webapp/templates/webapp/base.html:6 webapp/templates/webapp/navbar.html:19
 msgid "Database Duellonline"
 msgstr "Database Duellonline"
 
-#: webapp/templates/webapp/home.html:4
+#: webapp/templates/webapp/details.html:4
+#, fuzzy
+#| msgid "Add Opera"
+msgid "Opera:"
+msgstr "Add Opera"
+
+#: webapp/templates/webapp/details.html:4
+msgid "Opera ID:"
+msgstr ""
+
+#: webapp/templates/webapp/details.html:93
+#, fuzzy
+#| msgid "Attachment"
+msgid "Attachments"
+msgstr "Attachment"
+
+#: webapp/templates/webapp/details.html:102
+#, fuzzy
+#| msgid "File Name"
+msgid "File Name:"
+msgstr "File Name"
+
+#: webapp/templates/webapp/details.html:103
+#, fuzzy
+#| msgid "File Type"
+msgid "File Type:"
+msgstr "File Type"
+
+#: webapp/templates/webapp/details.html:104
+#, fuzzy
+#| msgid "File Size"
+msgid "File Size:"
+msgstr "File Size"
+
+#: webapp/templates/webapp/details.html:105
+#, fuzzy
+#| msgid "Notes"
+msgid "Notes:"
+msgstr "Notes"
+
+#: webapp/templates/webapp/details.html:106
+msgid "Download"
+msgstr ""
+
+#: webapp/templates/webapp/details.html:121
+msgid "Confirm deletion"
+msgstr ""
+
+#: webapp/templates/webapp/details.html:124
+msgid "Are you sure you want to delete this volume?"
+msgstr ""
+
+#: webapp/templates/webapp/details.html:127
+msgid "No"
+msgstr ""
+
+#: webapp/templates/webapp/details.html:128
+msgid "Yes"
+msgstr ""
+
+#: webapp/templates/webapp/home.html:4 webapp/views.py:23
 msgid "Home Page"
 msgstr "Home Page"
 
-#: webapp/templates/webapp/home.html:49
+#: webapp/templates/webapp/home.html:11
+msgid "Field search box"
+msgstr ""
+
+#: webapp/templates/webapp/home.html:54
 msgid "Year"
 msgstr "Year"
 
-#: webapp/templates/webapp/latest.html:4
-msgid "Latest Operas"
-msgstr "Latest Operas"
+#: webapp/templates/webapp/home.html:67
+msgid "Fulltext search box"
+msgstr ""
 
-#: webapp/templates/webapp/latest.html:38
+#: webapp/templates/webapp/home.html:74
+msgid "Search"
+msgstr ""
+
+#: webapp/templates/webapp/listoperas.html:84
+#: webapp/templates/webapp/listoperas.html:91
+#: webapp/templates/webapp/listoperas.html:98
 msgid "Error:"
 msgstr "Error:"
 
-#: webapp/templates/webapp/latest.html:39
+#: webapp/templates/webapp/listoperas.html:85
+#: webapp/templates/webapp/listoperas.html:92
+#: webapp/templates/webapp/listoperas.html:99
 msgid "Sorry, no books matching your query"
 msgstr "Sorry, no books matching your query"
 
-#: webapp/templates/webapp/navbar.html:21
+#: webapp/templates/webapp/login.html:4
+#, fuzzy
+#| msgid "Home Page"
+msgid "Login Page"
+msgstr "Home Page"
+
+#: webapp/templates/webapp/modify.html:6
+msgid "Modify Opera ID:"
+msgstr ""
+
+#: webapp/templates/webapp/modify.html:40
+msgid "Update"
+msgstr ""
+
+#: webapp/templates/webapp/navbar.html:23
 msgid "Home"
 msgstr "Home"
 
-#: webapp/templates/webapp/navbar.html:22
-msgid "Latest Opera"
-msgstr "Latest Opera"
+#: webapp/templates/webapp/navbar.html:24
+msgid "Recently Added"
+msgstr ""
+
+#: webapp/templates/webapp/navbar.html:25 webapp/views.py:165
+#: webapp/views.py:166
+msgid "All Operas"
+msgstr "All Operas"
+
+#: webapp/templates/webapp/navbar.html:26 webapp/views.py:55
+msgid "Add Opera"
+msgstr "Add Opera"
+
+#: webapp/templates/webapp/navbar.html:29
+msgid "Hello:"
+msgstr ""
+
+#: webapp/templates/webapp/navbar.html:31
+msgid "View Profile"
+msgstr ""
+
+#: webapp/templates/webapp/navbar.html:33
+msgid "Logout"
+msgstr ""
+
+#: webapp/templates/webapp/navbar.html:37
+msgid "Login"
+msgstr ""
+
+#: webapp/views.py:29
+msgid "Login:"
+msgstr ""
+
+#: webapp/views.py:99 webapp/views.py:101
+msgid "Opera ID: "
+msgstr ""
+
+#: webapp/views.py:103
+#, fuzzy
+#| msgid "Author"
+msgid "Unknown Author"
+msgstr "Author"
+
+#: webapp/views.py:123
+msgid "Modify Opera ID: "
+msgstr ""
+
+#: webapp/views.py:165
+msgid "Page: "
+msgstr ""
+
+#: webapp/views.py:175
+msgid "Recently added Operas"
+msgstr ""
+
+#: webapp/views.py:176
+msgid "Recently"
+msgstr ""
+
+#: webapp/views.py:189
+msgid "User: "
+msgstr ""
+
+#~ msgid "Latest Operas"
+#~ msgstr "Latest Operas"
+
+#~ msgid "Latest Opera"
+#~ msgstr "Latest Opera"

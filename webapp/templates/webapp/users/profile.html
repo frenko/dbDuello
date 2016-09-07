@@ -3,7 +3,35 @@
 {% load i18n %}
 
 {% block admin_content %}
-<div class="container mtb">
-	ASd
+<h4>Dashbord</h4>
+<div class="hline-b"></div>
+<div class="row">
+	<div class="col-md-6">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">{% trans 'Statistics' %}</h3>
+			</div>
+			<div class="panel-body">
+				<p>{% trans 'Total Operas:' %} {{ n_opera }}</p>
+				<p>{% trans 'Total Attachments:' %} {{ n_attach }}</p>
+			</div>
+		</div>
+		
+	</div>
+	<div class="col-md-6">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">{% trans 'Latest Opera' %}</h3>
+			</div>
+			<div class="panel-body">
+				{% for opera in latest %}
+				<p>{{ opera.title }}</p>
+				{% endfor %}
+			</div>
+		</div>
+		
+	</div>
 </div>
 {% endblock %}

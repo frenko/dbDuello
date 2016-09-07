@@ -65,12 +65,12 @@ TEMPLATES = [
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.request',
-				'django.template.context_processors.debug',
-				'django.template.context_processors.i18n',
-				'django.template.context_processors.media',
-				'django.template.context_processors.static',
-				'django.template.context_processors.tz',
-				'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
             ],
         },
     },
@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'dbDuello.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'dbduello',
         'USER': 'dbduello',
         'PASSWORD': 'duello',
@@ -134,13 +134,13 @@ USE_L10N = True
 USE_TZ = True
 
 LOCALE_PATHS = [
-	os.path.join(BASE_DIR, 'locale'),
-	]
-	
+    os.path.join(BASE_DIR, 'locale'),
+]
+
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
-	
-#Media Directory
+
+# Media Directory
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

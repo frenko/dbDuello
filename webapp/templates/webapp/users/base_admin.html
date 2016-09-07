@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <title>{% trans 'Administration Page Duellonline' %} | {% trans 'User:' %} {{ user.username }}{% block title %}{% endblock %}</title>
+    <title>{% trans 'Administration Page Duellonline' %} | {% block title %}{% endblock %}</title>
     {% load staticfiles %}
     {% load bootstrap3 %}
     {% block css_style %}
@@ -16,24 +15,21 @@
 </head>
 
 <body>
-	{% include 'webapp/users/userbar.html' %}
-	<div class="container-fluid mtb">
-
-		<div class="row">
-			<!-- Sidebar Dx -->
-			<div class="col-md-4 sidebar-offcanvas">
-				{% include 'webapp/users/sidebar.html' %}
-			</div>
-			<!-- Maincontent -->
-			<div class="col-lg-8">
-				{% block admin_content %}{% endblock %}
-			</div>
-		</div>
-	
+    {% include 'webapp/users/userbar.html'%}
+    <div class="container-fluid mtb">
+	<div class="row">
+	    <!-- Sidebar Dx -->
+	    <div class="col-md-4 sidebar-offcanvas">
+		{% include 'webapp/users/sidebar.html' %}
+	    </div>
+	    <!-- Maincontent -->
+	    <div class="col-lg-8">
+		{% block admin_content %}{% endblock %}
+	    </div>
 	</div>
+    </div>
     {% block js_block %}
     {% bootstrap_javascript jquery=1 %}
     {% endblock %}
 </body>
-
 </html>

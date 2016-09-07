@@ -7,7 +7,14 @@
 
 <div class="container mtb">
 	{% if next %}
-		<div class="alert alert-warning" role="alert">{% trans 'Please login to see this page.' %}</div>
+		<div class="alert alert-warning  alert-dismissible" style="text-align: center;" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Error!</strong>
+			{% blocktrans %}
+			<p>You have no permission to visit this page or you are not logged in.</p>
+			<p>Please login to see this page.</p>
+			{% endblocktrans %}
+		</div>
 	{% endif %}
 	
 	<div class="row">

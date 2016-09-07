@@ -3,7 +3,7 @@
   font-size: 12px;
   font-weight: 200;
   background-color: #FFFFFF;
-  width: 300px;
+  width: 100%;
   height: 100%;
   color: #384452;
 }
@@ -12,7 +12,7 @@
   line-height: 50px;
   display: block;
   
-  color: #384452;  
+  color: #384452;
   font-size: 20px;
   font-weight: 700;
 }

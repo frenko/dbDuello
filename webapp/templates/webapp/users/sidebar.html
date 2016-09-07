@@ -7,7 +7,7 @@
   
             <ul id="menu-content" class="menu-content collapse out">
                 <li>
-                  <a href="{% url 'webapp:user_profile' user.id %}">
+                  <a href="{% url 'webapp:user_profile' %}">
                   <i class="fa fa-dashboard fa-lg"></i> {% trans 'Dashboard' %}
                   </a>
                 </li>
@@ -16,7 +16,7 @@
                   <a href="#"><i class="fa fa-book fa-lg"></i> {% trans 'Manage Operas' %} <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="manopera">
-					<li><a href="{% url 'webapp:listopera' user.id %}">{% trans 'All Operas' %}</a></li>
+					<li><a href="#">{% trans 'All Operas' %}</a></li>
                     <li><a href="#">{% trans 'Add Opera' %}</a></li>
                     <li><a href="#">{% trans 'Attachments' %}</a></li>
                 </ul>
@@ -31,7 +31,7 @@
                 </ul>
 
                  <li>
-                  <a href="{% url 'webapp:logout' %}">
+                  <a href="{% url 'logout' %}">
                   <i class="fa fa-sign-out fa-lg"></i> Logout
                   </a>
                 </li>
