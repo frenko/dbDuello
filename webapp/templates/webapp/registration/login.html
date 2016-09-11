@@ -1,0 +1,88 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+{% load i18n %}
+{% block title %} | {% trans 'Login Page' %} {% endblock %}
+
+{% block content %}
+
+<div class="container mtb">
+	{% if next %}
+		<div class="alert alert-warning  alert-dismissible" style="text-align: center;" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Error!</strong>
+			{% blocktrans %}
+			<p>You have no permission to visit this page or you are not logged in.</p>
+			<p>Please login to see this page.</p>
+			{% endblocktrans %}
+		</div>
+	{% endif %}
+	
+	{% if form.errors %}
+		<div class="alert alert-warning  alert-dismissible" style="text-align: center;" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Error!</strong>
+			{% blocktrans %}
+			<p>Invalid Username or Password</p>
+			<p>Please try again or reset your password.</p>
+			{% endblocktrans %}
+		</div>
+	{% endif %}
+	
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-login">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="text-center">
+								<a href="#" class="active" id="login-form-link">{% trans 'Login' %}</a>
+							</div>
+						</div>
+					</div>
+					<hr>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-12">
+							<form id="login-form" action="{% url 'login' %}" method="post" role="form" style="display: block;">
+								{% if next %}<input type="hidden" name="next" value="{{next}}" />{% endif %}
+								{% csrf_token %}
+								<div class="form-group">
+									{{ form.username.errors }}
+									{{ form.username | add_class:"form-control" | attr:"placeholder:Username" }}
+								</div>
+								<div class="form-group">
+									{{ form.password.errors }}
+									{{ form.password | add_class:"form-control" | attr:"placeholder:Password" }}
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-sm-6 col-sm-offset-3">
+											<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="text-center">
+												<a href="{% url 'password_reset' %}" tabindex="5" class="forgot-password">{% trans 'Forgot Password?' %}</a>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="text-center">
+												<a href="{% url 'webapp:index' %}" tabindex="5" class="forgot-password">{% trans 'Home Page' %}</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

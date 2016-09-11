@@ -1,0 +1,35 @@
+{% extends "webapp/base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+{% load i18n %}
+{% block title %} | {% trans 'Registration' %} {% endblock %}
+
+{% block content %}
+
+<div class="container mtb">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-login">
+                <div class="panel-heading">
+                    <h4>{% trans 'Register' %}</h4>
+                    <hr>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                {% trans 'Registration Complete. Go to your email to complete activation procedure.' %}
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <a href="{% url 'webapp:index' %}" tabindex="5" class="forgot-password">{% trans 'Home Page' %}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

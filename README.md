@@ -31,13 +31,13 @@ Il database ad oggi è consultabile tramite richiesta di password (automatizzata
 
 ### Installazione
 
-## Debian
+#### Debian
 
 ``sudo apt-get install python-virtualenv libmysqlclient-dev libsqlite3-dev git``
 
 il pacchetto ``libmysqlclient-dev`` è utilizzato se il database in uso è MySql altrimenti ``libsqlite3-dev`` per utilizzare SqLite.
 
-## Archlinux
+#### Archlinux
 
 ``sudo pacman -Sy libmysqlclient python2-virtualenv git``
 specificare che python deve essere la versione 2.* perché su archlinux la versione di default di python è la 3.*
