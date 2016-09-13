@@ -16,8 +16,10 @@
 </head>
 
 <body>      
-    {% block content %}{% endblock %}   
-        
+    {% block content %}{% endblock %}
+    
+    
+    {% include 'webapp/footer.html' %}
     {% block js_block %}
     {% bootstrap_javascript jquery=1 %}
     {% endblock %}

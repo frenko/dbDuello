@@ -6,7 +6,36 @@
 
 {% block content %}
 
-<div class="container mtb">	
+<div class="container mtb">
+	{% if form.errors %}
+		<div class="alert alert-warning  alert-dismissible" style="text-align: center;" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Error!</strong>
+			{% if form.username.errors %}
+			<ol>
+				{% for error in form.username.errors %}
+				<li><strong>{{ error|escape }}</strong></li>
+				{% endfor %}
+			</ol>
+			{% endif %}
+			
+			{% if form.password1.errors %}
+			<ol>
+				{% for error in form.password1.errors %}
+				<li><strong>{{ error|escape }}</strong></li>
+				{% endfor %}
+			</ol>
+			{% endif %}
+			
+			{% if form.password2.errors %}
+			<ol>
+				{% for error in form.password2.errors %}
+				<li><strong>{{ error|escape }}</strong></li>
+				{% endfor %}
+			</ol>
+			{% endif %}
+		</div>
+	{% endif %}
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-login">
@@ -19,16 +48,16 @@
 						<div class="col-lg-12">
 							<form id="register-form" action="." method="post" role="form">
 								{% csrf_token %}
-								<div class="form-group">
-									{{ form.username | add_class:"form-control" | attr:"placeholder:Username" }}
+								<div class="form-group{% if form.username.errors %} has-error{% endif %}">
+								{{ form.username | add_class:"form-control" | attr:"placeholder:Username" }}
 								</div>
-								<div class="form-group">
+								<div class="form-group{% if form.email.errors %} has-error{% endif %}">
 									{{ form.email | add_class:"form-control" | attr:"placeholder:Email Address" }}
 								</div>
-								<div class="form-group">
+								<div class="form-group{% if form.password1.errors %} has-error{% endif %}">
 									{{ form.password1 | add_class:"form-control" | attr:"placeholder:Password" }}
 								</div>
-								<div class="form-group">
+								<div class="form-group{% if form.password2.errors %} has-error{% endif %}">								
 									{{ form.password2 | add_class:"form-control" | attr:"placeholder:Confirm Password" }}
 								</div>
 								<div class="form-group">
