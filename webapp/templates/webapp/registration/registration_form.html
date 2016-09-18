@@ -18,7 +18,7 @@
 				{% endfor %}
 			</ol>
 			{% endif %}
-			
+
 			{% if form.password1.errors %}
 			<ol>
 				{% for error in form.password1.errors %}
@@ -26,7 +26,7 @@
 				{% endfor %}
 			</ol>
 			{% endif %}
-			
+
 			{% if form.password2.errors %}
 			<ol>
 				{% for error in form.password2.errors %}
@@ -40,7 +40,7 @@
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-login">
 				<div class="panel-heading">
-					<h4>{% trans 'Register' %}</h4>
+					<h4>{% trans 'Registration' %}</h4>
 					<hr>
 				</div>
 				<div class="panel-body">
@@ -57,7 +57,7 @@
 								<div class="form-group{% if form.password1.errors %} has-error{% endif %}">
 									{{ form.password1 | add_class:"form-control" | attr:"placeholder:Password" }}
 								</div>
-								<div class="form-group{% if form.password2.errors %} has-error{% endif %}">								
+								<div class="form-group{% if form.password2.errors %} has-error{% endif %}">
 									{{ form.password2 | add_class:"form-control" | attr:"placeholder:Confirm Password" }}
 								</div>
 								<div class="form-group">

@@ -27,7 +27,7 @@
 			</div>
 			<div class="panel-body">
 				{% for opera in latest %}
-				<p>{{ opera.title }}</p>
+				<p><a href="{% url 'webapp:view_opera' opera.id %}">{{ opera.title }}</a></p>
 				{% endfor %}
 			</div>
 		</div>
